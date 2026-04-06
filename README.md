@@ -6,7 +6,7 @@
 
 The core purpose of an Opportunity Discovery and Pursuit Engine is the relationship itself: to discover high-value opportunities efficiently, pursue them with focus, bring them to successful closure, and sustain them over time. Technology is merely the means to that end. AI, multi-agent systems, and agentic workflows are not the point — they exist only to get the job done and then step aside.
 
-OpptyOps is conceived as a pragmatic, no-frills multi-toolkit. It will not prioritize polish, at least not initially and possibly not ever. Instead, it is an open-source evolution and deliberate study of both the development process behind Santifer’s Career-Ops system and the original repository (https://github.com/santifer/career-ops), along with its forks and related projects.
+OpptyOps is conceived as a pragmatic, no-frills multi-toolkit. It will not prioritize polish, at least not initially and possibly not ever. Instead, it is an open-source evolution and deliberate study of both [the development process behind Santifer’s Career-Ops system](https://santifer.io/career-ops-system) and the original repository (https://github.com/santifer/career-ops), along with its forks and related projects.
 
 The goal is to build an intelligent Partner Relationship Management (PRM) / CRM platform that fully automates the opportunity lifecycle. Opportunities extend well beyond traditional job search to include startup founding, venture philanthropy, special-projects staffing, volunteer coordination, and any creative, scientific, or artistic collaboration that requires meaningful commitment of talent and resources.
 
