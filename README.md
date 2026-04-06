@@ -17,17 +17,21 @@ As a monorepo, OpptyOps deliberately avoids reinventing existing solutions. For 
 
 ---
 
-## 10-Step Playbook for Mastering & Generalizing the Career-Ops System
+## General Vision For UNDERSTANDING How An Opportunity Operations System Might Work
 
-This playbook is deliberately sequential yet modular—complete steps 1–3 first (they take ~1–2 days), then parallelize framework experiments in Step 4–5. The purpose of doing is is to **thoroughly study [Santifer's process for building his Career-Ops system](https://santifer.io/career-ops-system)**, including its [open-source GitHub repo](https://github.com/santifer/career-ops).
+The first step will be using and developing the Career Ops system in order to better undertand how we might put together a 10-step Playbook, even though we have some ideas for what this might entail.
+
+The currently propsed playbook is deliberately sequential yet modular—complete steps 1–3 first (they take ~1–2 days), then parallelize framework experiments in Step 4–5. The purpose of doing is is to **thoroughly study [Santifer's process for building his Career-Ops system](https://santifer.io/career-ops-system)**, including its [open-source GitHub repo](https://github.com/santifer/career-ops).
 
 My personal intent is a weensy bit more aspirational than just study.  At first, I plan to add trial approaches based on [different agentic approaches](https://x.com/i/grok/share/a2a7103986ad4eb2a87eed64722e393e) such as Hermes, Open Claw, et al as well as weaving in things like Chroma.
 
-The rather grandiose object is generalize an excellent system for job search into one with more ambitious, broad ideas about working and life ... an ***“Opportunity Discovery & Pursuit Engine”*** ... *and maybe a better name, like* **OpptyOps!* 
+The rather grandiose object of this is generalize an excellent system for job search into one with more ambitious, broad ideas about working and life ... an ***“Opportunity Discovery And Pursuit Engine”*** ... *and maybe find better name, than* **OpptyOps!* 
 
 ---
 
-The **10-step Playbook** is purpose-built for these stated goals: deep understanding, potential rebuilding, and expansion beyond job search (e.g., to startup founding evaluation, venture philanthropy scouting, or any domain requiring continual opportunity scanning, personalized evaluation, artifact generation, and human-in-the-loop action).
+## **10-step Playbook For PRACTICALLY DEVELOPING An Opportunity Operations System
+
+What's given below is of a highly proforma nature. The overall structure is purpose-built for these stated goals: deep understanding, potential rebuilding, and expansion beyond job search (e.g., to startup founding evaluation, venture philanthropy scouting, or any domain requiring continual opportunity scanning, personalized evaluation, artifact generation, and human-in-the-loop action).
 
 In its current form, this playbook explicitly incorporates exploration of lightweight multi-agent frameworks (OpenClaw, MemU, memsearch, BearClaw, 4-layer file-based architectures, Git-native patterns, CrewAI/LightAgent hybrids, Hermes/Icarus-Daedalus, etc.), file/Markdown-first memory systems, Chroma + small specialized LLMs, and edge-hardware deployment (Raspberry Pi, Mac Mini M4, etc.). The emphasis is on low-resource, human-readable, Git-syncable, cross-session persistence that echoes the Icarus Memory Protocol’s ultra-minimal fabric tiering.
 
