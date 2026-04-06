@@ -2,6 +2,15 @@
 
 *This OpptyOps repo is a work-in-progress fork* so ***you probably want to [go directly to @Santifer's original](https://github.com/santifer/career-ops).***  
 
+The point of an Opportunity Discovery & Pursuit Engine is the RELATIONSHIP being discovered, pursued, consummated and sustained ... the point is not really about the tech used to effect meaningful relationships ... the most important feature of the tech is just do the job and GTFO of the way.
+
+The vision for OpptyOps is a pragmatic multi-tool-kit.  It will not be pretty, at first ... or maybe ever.
+
+OpptyOps represents an open-source evolution of [Santifer’s Career-Ops system](https://github.com/santifer/career-ops). The goal is develop the tools for an intelligent Partner Relationship Management (PRM) / CRM tool that automates the full opportunity lifecycle. The multi-agent system would run continuously on low-resource local hardware (Raspberry Pi, Mac Mini M4), using lightweight multi-agent orchestration, file/Markdown-first memory, and small specialized LLMs. Core capabilities will include autonomous prospecting and scraping, multi-dimensional qualification, CRM-style tracking, and on-demand generation of common documents found in the discussion and accelerated negotiation of opportunities (resumes, cover letters, SOWs, proposals, pitch decks). As a monorepo, it's purpose is NOT to reinvent wheels — instead it will generally suggest 3–4 proven ways (CLI, Python, Rust, Go, Chroma, dashboards, etc.) so the dev/user can pick the simplest, most pragmatic path for accomplishing any task.
+
+
+---
+
 # 10-Step Playbook for Mastering & Generalizing the Career-Ops System
 
 This playbook is deliberately sequential yet modular—complete steps 1–3 first (they take ~1–2 days), then parallelize framework experiments in Step 4–5. The purpose of doing is is to **thoroughly study [Santifer's process for building his Career-Ops system](https://santifer.io/career-ops-system)**, including its [open-source GitHub repo](https://github.com/santifer/career-ops).
