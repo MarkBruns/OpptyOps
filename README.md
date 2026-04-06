@@ -2,18 +2,22 @@
 
 *This OpptyOps repo is a work-in-progress fork* so ***you probably want to [go directly to @Santifer's original](https://github.com/santifer/career-ops).***  
 
-*The point of an Opportunity Discovery and Pursuit Engine is the RELATIONSHIP being efficiently discovered, assiduously pursued, effectively consummated and satisfactorily sustained.* It is not tech for tech's sake ... the point is not really about AI, multi-agent systems, agentic development or any other form of tech used to effect meaningful relationships ... the most important feature of the tech is just do the job and GTFO of the way.
+## **Project Vision**
 
-The vision for OpptyOps is a pragmatic multi-tool-kit.  It will NOT be pretty, ***at first,*** *or maybe ever.* OpptyOps will represent an open-source evolution and STUDY of BOTH [the development process](https://santifer.io/career-ops-system) and [Santifer's Career-Ops repository](https://github.com/santifer/career-ops), as well as forks and similar repositories. 
+The core purpose of an Opportunity Discovery and Pursuit Engine is the relationship itself: to discover high-value opportunities efficiently, pursue them with focus, bring them to successful closure, and sustain them over time. Technology is merely the means to that end. AI, multi-agent systems, and agentic workflows are not the point — they exist only to get the job done and then step aside.
 
-The goal is develop the tools for an intelligent Partner Relationship Management (PRM) / CRM tool that automates the full opportunity lifecycle. Opportunities are not limited to job search -- they might include startup foundation, venture philanthropy, special projects staffing, volunteer coordination, as well as creative, scientific or artistic endeavors involving a meaningful commitment of talent and resources.
+OpptyOps is conceived as a pragmatic, no-frills multi-toolkit. It will not prioritize polish, at least not initially and possibly not ever. Instead, it is an open-source evolution and deliberate study of both the development process behind Santifer’s Career-Ops system and the original repository (https://github.com/santifer/career-ops), along with its forks and related projects.
 
-The multi-agent system would run continuously on low-resource local hardware (Raspberry Pi, Mac Mini M4), using lightweight multi-agent orchestration, file/Markdown-first memory, and small specialized LLMs. Core capabilities will include autonomous prospecting and scraping, multi-dimensional qualification, CRM-style tracking, and on-demand generation of common documents found in the discussion and accelerated negotiation of opportunities (resumes, cover letters, SOWs, proposals, pitch decks). As a monorepo, it's purpose is NOT to reinvent wheels — instead it will generally suggest 3–4 proven ways (CLI, Python, Rust, Go, Chroma, dashboards, etc.) so the dev/user can pick the simplest, most pragmatic path for accomplishing any task.
+The goal is to build an intelligent Partner Relationship Management (PRM) / CRM platform that fully automates the opportunity lifecycle. Opportunities extend well beyond traditional job search to include startup founding, venture philanthropy, special-projects staffing, volunteer coordination, and any creative, scientific, or artistic collaboration that requires meaningful commitment of talent and resources.
+
+The system is designed to run continuously on low-resource local hardware such as a Raspberry Pi or Mac Mini M4. It employs lightweight multi-agent orchestration, file- and Markdown-first memory, and small specialized large language models. Core capabilities include autonomous prospecting and data ingestion, multi-dimensional opportunity qualification, persistent CRM-style tracking, and on-demand generation of the documents essential to discussion and accelerated negotiation — resumes, cover letters, statements of work, proposals, and pitch decks.
+
+As a monorepo, OpptyOps deliberately avoids reinventing existing solutions. For any given task it surfaces 3–4 proven, practical approaches (CLI tools, Python, Rust, Go, Chroma, dashboards, etc.) so developers and users can select the simplest and most effective path for their needs.
 
 
 ---
 
-# 10-Step Playbook for Mastering & Generalizing the Career-Ops System
+## 10-Step Playbook for Mastering & Generalizing the Career-Ops System
 
 This playbook is deliberately sequential yet modular—complete steps 1–3 first (they take ~1–2 days), then parallelize framework experiments in Step 4–5. The purpose of doing is is to **thoroughly study [Santifer's process for building his Career-Ops system](https://santifer.io/career-ops-system)**, including its [open-source GitHub repo](https://github.com/santifer/career-ops).
 
