@@ -23,9 +23,9 @@ The first step will be using and developing the Career Ops system in order to be
 
 The currently propsed playbook is deliberately sequential yet modular—complete steps 1–3 first (they take ~1–2 days), then parallelize framework experiments in Step 4–5. The purpose of doing is is to **thoroughly study [Santifer's process for building his Career-Ops system](https://santifer.io/career-ops-system)**, including its [open-source GitHub repo](https://github.com/santifer/career-ops).
 
-My personal intent is a weensy bit more aspirational than just study.  At first, I plan to add trial approaches based on [different agentic approaches](https://x.com/i/grok/share/a2a7103986ad4eb2a87eed64722e393e) such as Hermes, Open Claw, et al as well as weaving in things like Chroma.
+My personal intent is a weensy bit more aspirational than just study.  At first, I plan to add trial approaches based on [different agentic approaches](https://x.com/i/grok/share/a2a7103986ad4eb2a87eed64722e393e) such as [Hermes](https://github.com/NousResearch/hermes-agent), [Open Claw](https://github.com/openclaw/openclaw), et al as well as weaving in things like [Chroma](https://docs.trychroma.com/docs/overview/introduction) ... as well as prospecting approaches based on something like [Scobel's AI Topic Exlorer for X](https://alignednews.com/how-it-works)
 
-The rather grandiose object of this is generalize an excellent system for job search into one with more ambitious, broad ideas about working and life ... an ***“Opportunity Discovery And Pursuit Engine”*** ... *and maybe find better name, than* **OpptyOps!* 
+The rather grandiose object of this whole thing is generalize an excellent system for job search into one with more ambitious, broad ideas about working and life ... an ***“Opportunity Discovery And Pursuit Engine”*** ... *and maybe find better name, than* **OpptyOps!* 
 
 ---
 
