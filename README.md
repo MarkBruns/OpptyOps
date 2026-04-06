@@ -1,8 +1,8 @@
-# Opportunity Discovery & Pursuit Engine
+# Opportunity Discovery and Pursuit Engine
 
 *This OpptyOps repo is a work-in-progress fork* so ***you probably want to [go directly to @Santifer's original](https://github.com/santifer/career-ops).***  
 
-The point of an Opportunity Discovery & Pursuit Engine is the RELATIONSHIP being discovered, pursued, consummated and sustained ... the point is not really about the tech used to effect meaningful relationships ... the most important feature of the tech is just do the job and GTFO of the way.
+*The point of an Opportunity Discovery and Pursuit Engine is the RELATIONSHIP being efficiently discovered, assiduously pursued, effectively consummated and satisfactorily sustained.* It is not tech for tech's sake ... the point is not really about AI, multi-agent systems, agentic development or any other form of tech used to effect meaningful relationships ... the most important feature of the tech is just do the job and GTFO of the way.
 
 The vision for OpptyOps is a pragmatic multi-tool-kit.  It will not be pretty, at first ... or maybe ever. OpptyOps represents an open-source evolution and STUDY of BOTH [the development process](https://santifer.io/career-ops-system) and [Santifer's Career-Ops repository](https://github.com/santifer/career-ops), as well as forks and similar repositories. 
 
