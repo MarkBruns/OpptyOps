@@ -1,4 +1,4 @@
-***The best way to catch up is my CURRENT thinking captured in [the daily journal](https://markbruns.github.io/Journal.html) ... OR my [microblogging on X](https://x.com/MarkBruns)*** 
+***The best way to catch up is my CURRENT thinking captured in [the daily journal](Journal.md) ... OR my [microblogging on X](https://x.com/MarkBruns)*** 
 
 
 The core purpose of an Opportunity Discovery and Pursuit Engine is the relationship itself: to discover high-value opportunities efficiently, pursue them with focus, bring them to successful closure, and sustain them over time. Technology is merely the means to that end. AI, multi-agent systems, and agentic workflows are not the point — they exist only to get the job done and then step aside.
