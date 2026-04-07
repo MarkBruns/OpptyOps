@@ -1,0 +1,10 @@
+## arXiv Electrical Engineering and Systems Science
+
+eess.AS | Audio and Speech Processing | Audio signal processing, speech recognition, synthesis, enhancement, and analysis. Includes acoustic modeling and source separation. The area covers applications in audio and speech technologies. |
+
+eess.IV | Image and Video Processing | Image and video signal processing, coding, enhancement, and analysis. Includes computer vision methods when applied to signals. The area focuses on multimedia signal processing. |
+
+eess.SP | Signal Processing | Topics of interest include: statistical signal processing, spectral estimation and system identification; filter design, adaptive filtering / stochastic learning; (compressive) sampling, sensing, and transform-domain methods including fast algorithms; signal processing for machine learning and machine learning for signal processing applications; in-network and graph signal processing; convex and nonconvex optimization methods for signal processing applications; radar, sonar, and sensor array beamforming and direction finding; communications signal processing; low power, multi-core and system-on-chip signal processing; sensing, communication, analysis and optimization for cyber-physical systems such as power grids and the Internet of Things. The area includes theory and applications of signal processing. Key topics include digital and analog signal processing techniques. |
+
+eess.SY | Systems and Control | This section includes theoretical and experimental research covering all facets of automatic control systems. The section is focused on methods of control system analysis and design using tools of modeling, simulation and optimization. Specific areas of research include nonlinear, distributed, adaptive, stochastic and robust control in addition to hybrid and discrete event systems. Application areas include automotive and aerospace control systems, network control, biological systems, multiagent and cooperative control, robotics, reinforcement learning, sensor networks, control of cyber-physical and energy-related systems, and control of computing systems. |
+

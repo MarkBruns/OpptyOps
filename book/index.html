@@ -1,0 +1,346 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>WHY Build An Opportunity Discovery and Pursuit Engine - Opportunity Discovery and Pursuit Engine</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Opportunity Discovery and Pursuit Engine</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p><em><strong>The best way to catch up is my CURRENT thinking captured in <a href="https://markbruns.github.io/Journal.html">the daily journal</a> ... OR my <a href="https://x.com/MarkBruns">microblogging on X</a></strong></em></p>
+<p>The core purpose of an Opportunity Discovery and Pursuit Engine is the relationship itself: to discover high-value opportunities efficiently, pursue them with focus, bring them to successful closure, and sustain them over time. Technology is merely the means to that end. AI, multi-agent systems, and agentic workflows are not the point — they exist only to get the job done and then step aside.</p>
+<p>OpptyOps is conceived as a pragmatic, no-frills multi-toolkit. It will not prioritize polish, at least not initially and possibly not ever. Instead, it is an open-source evolution and deliberate study of both <a href="https://santifer.io/career-ops-system">the development process behind Santifer’s Career-Ops system</a> and the original repository (https://github.com/santifer/career-ops), along with its forks and related projects.</p>
+<p>The goal is to build a lightweight, extensible open source toolkit for a pragamatic Partner Relationship Management (PRM) / CRM platform that be modified/extended to fully automate different opportunity lifecycles. Opportunities extend well beyond traditional job search to include startup founding, venture philanthropy, special-projects staffing, volunteer coordination, and any creative, scientific, or artistic collaboration that requires meaningful commitment of talent and resources.</p>
+<p>The system is designed to run continuously on low-resource local hardware such as a Raspberry Pi or Mac Mini M4. It employs lightweight multi-agent orchestration, file- and Markdown-first memory, and small specialized large language models. Core capabilities include autonomous prospecting and data ingestion, multi-dimensional opportunity qualification, persistent CRM-style tracking, and on-demand generation of the documents essential to discussion and accelerated negotiation — resumes, cover letters, statements of work, proposals, and pitch decks.</p>
+<p>As a monorepo, OpptyOps deliberately avoids reinventing existing solutions. For any given task it surfaces 3–4 proven, practical approaches (CLI tools, Python, Rust, Go, Chroma, dashboards, etc.) so developers and users can select the simplest and most effective path for their needs.</p>
+<hr />
+<h2 id="general-vision-for-understanding-how-an-opportunity-operations-system-might-work"><a class="header" href="#general-vision-for-understanding-how-an-opportunity-operations-system-might-work">General Vision For UNDERSTANDING How An Opportunity Operations System Might Work</a></h2>
+<p>The first step will be using and developing the Career Ops system in order to better undertand how we might put together a 10-step Playbook, even though we have some ideas for what this might entail.</p>
+<p>The currently propsed playbook is deliberately sequential yet modular—complete steps 1–3 first (they take ~1–2 days), then parallelize framework experiments in Step 4–5. The purpose of doing is is to <strong>thoroughly study <a href="https://santifer.io/career-ops-system">Santifer's process for building his Career-Ops system</a></strong>, including its <a href="https://github.com/santifer/career-ops">open-source GitHub repo</a>.</p>
+<p>My personal intent is a weensy bit more aspirational than just study.  At first, I plan to add trial approaches based on <a href="https://x.com/i/grok/share/a2a7103986ad4eb2a87eed64722e393e">different agentic approaches</a> such as <a href="https://github.com/NousResearch/hermes-agent">Hermes</a>, <a href="https://github.com/openclaw/openclaw">Open Claw</a>, et al as well as weaving in things like <a href="https://docs.trychroma.com/docs/overview/introduction">Chroma</a> ... the point of exploring these approaches is really for the understanding to refactor, simplify, use the TIGHTEST technologies, those things that least-likely to fail or introduce vulnerabilities.</p>
+<p>FRANKLY, I am looking for technologies and approaches that are much more mature and ready to <em>just work</em> than most agentic AI currently is. <a href="https://alignednews.com/">AlignedNews</a> serves as the definitive <em>mature enough to</em> <em><strong>just work like you'd hope it'd work</strong></em> kind of "TECH THAT IS GROWN UP ENOUGH TO STAY OUT OF THE WAY" model we intend to emulate in the development of our <strong>Opportunity Discovery and Pursuit Engine</strong>. The AlignedNews platform is deceptively simple and consistently effective, yet it embodies a level of informed judgment that precisely identifies which knowledgeable experts are truly driving progress across the diverse disciplines of artificial intelligence.</p>
+<p>In general, our <strong>opportunity discovery and pursuit approaches must be mainly about PEOPLE, INTERACTIONS and RELATIONSHIPS</strong>, and not exactly about tech ... it's best if the tech is like a RELIABLE utility, ie something that can be ignored and taken for granted. An example of what we are looking for agentic workflows might be like <a href="https://alignednews.com/how-it-works"><strong>Robert Scobel</strong>'s AI topic explorer <strong>AlignedNews</strong></a>, which is really heavily based on X for what are hopefully obvious reasons about the nature of X -- because <em>X is more than just a data store or listing of something like a data API</em> that gives us job openings ... X might not be the best source for jobs or opportunities, but generally <strong>X is mainly about PEOPLE, INTERACTIONS and RELATIONSHIPS</strong>.</p>
+<p>Built upon over two decades of domain expertise about the <strong>PEOPLE, INTERACTIONS and RELATIONSHIPS</strong> of machine learning, data science and AI, AlignedNews draws from Scobel's 63 expert-curated lists on X, which together index more than 100,000 accounts and capture the rich interactions among the individuals and organizations shaping the field. In every data-collection sweep, a purpose-built XPlugin retrieves 3,000–7,000 new posts exclusively from these high-priority lists. A proven interface—written in C++ and connected directly to the MySQL server—performs all subsequent data wrangling with exceptional efficiency and reliability, avoiding the fragile, unrefactored abstractions common in much of today’s high-level JavaScript or Python codebases.</p>
+<p>Each post is then indexed in a <a href="https://docs.weaviate.io/weaviate">Weaviate vector database</a>, preserving full metadata (text, author, engagement metrics, and timestamp). Seen/unseen tracking ensures that only fresh content is processed, so the system operates on an exceptionally small yet exceptionally high-signal dataset. This curated subset is distilled and published through a disciplined, multi-stage pipeline:</p>
+<ul>
+<li><strong>Signal detection</strong> applies more than 100 carefully chosen keywords (“launching,” “acquired,” “SOTA,” “breakthrough,” “accepting,” “breaking,” and others) across every post; items containing multiple signals receive elevated priority scores.</li>
+<li><strong>Semantic search</strong> follows the keyword pass, surfacing nuanced signals that literal terms might miss—most notably the low-engagement but high-impact posts from authoritative voices that reveal emerging trends before they become obvious.</li>
+<li><strong>Cross-list pattern detection</strong> flags signals appearing in three or more independent expert lists, automatically elevating them to the highest priority and highlighting genuine community-wide momentum.</li>
+<li><strong>Editorial synthesis</strong> combines AI analysis of all detected signals with Robert’s seasoned editorial judgment to produce structured, context-rich narratives. Disparate stories are intelligently linked, and the true significance of subtle developments is articulated beyond raw engagement metrics.</li>
+<li><strong>Publication</strong> writes the finished content directly to <a href="https://supabase.com/">a Supabase database</a>. The site displays a live timestamp, and every section is regenerated with the freshest sweep data.</li>
+</ul>
+<p>It is precisely this elegant, high-fidelity picture of what is actually happening in AI—delivered with the most minimal overhead, for the most maximum insight—which inspires our vision for the <strong>Opportunity Discovery and Pursuit Engine.</strong></p>
+<p>By replicating Aligned News’ architecture and methodology, we expect to create a similarly powerful instrument: one that surfaces the most relevant opportunities almost effortlessly, equipping users with a decisive advantage in identifying, evaluating, and acting on the developments that matter most.The point is to use the best of different proven and efficient technologies, as Scobel has done, to generalize an what is a fine agentic system for job search into one with much more ambitious, generally broad ideas about finding the highest and best use of our time, in work, in creative pursuits, in LIFE ... thus an extensible, open source toolkit for building <em><strong>“Opportunity Discovery And Pursuit Engines”</strong></em> ... <em>and maybe along the way, we wil find better name, than</em> *<em>OpptyOps!</em></p>
+<hr />
+<h2 id="10-step-playbook-for-practically-developing-an-opportunity-operations-system"><a class="header" href="#10-step-playbook-for-practically-developing-an-opportunity-operations-system">**10-step Playbook For PRACTICALLY DEVELOPING An Opportunity Operations System</a></h2>
+<p>What's given below is of a highly proforma nature. The overall structure is purpose-built for these stated goals: deep understanding, potential rebuilding, and expansion beyond job search (e.g., to startup founding evaluation, venture philanthropy scouting, or any domain requiring continual opportunity scanning, personalized evaluation, artifact generation, and human-in-the-loop action).</p>
+<p>In its current form, this playbook explicitly incorporates exploration of lightweight multi-agent frameworks (OpenClaw, MemU, memsearch, BearClaw, 4-layer file-based architectures, Git-native patterns, CrewAI/LightAgent hybrids, Hermes/Icarus-Daedalus, etc.), file/Markdown-first memory systems, Chroma + small specialized LLMs, and edge-hardware deployment (Raspberry Pi, Mac Mini M4, etc.). The emphasis is on low-resource, human-readable, Git-syncable, cross-session persistence that echoes the Icarus Memory Protocol’s ultra-minimal fabric tiering.</p>
+<h3 id="step-1-clone-run-and-document-the-original-system-immersion-phase"><a class="header" href="#step-1-clone-run-and-document-the-original-system-immersion-phase">Step 1: Clone, Run, and Document the Original System (Immersion Phase)</a></h3>
+<ul>
+<li>Clone <code>https://github.com/santifer/career-ops</code>, follow <code>docs/SETUP.md</code> exactly, configure <code>profile.yml</code>, <code>portals.yml</code>, and your <code>cv.md</code>.</li>
+<li>Execute every mode (<code>/career-ops</code>, <code>scan</code>, <code>batch</code>, <code>pdf</code>, <code>apply</code>, <code>pipeline</code>, etc.) on 20–50 real opportunities. Capture screenshots, logs, outputs, and timing.</li>
+<li>Create a personal “CareerOps Anatomy Notebook” (Markdown + Obsidian) mapping: 14 modes → data flows → file artifacts (TSV trackers, reports/, output/, jds/) → Playwright scraping → Claude Code orchestration → HITL gates.</li>
+<li><strong>Why?</strong> You cannot generalize what you haven’t run end-to-end. This reveals the file-based “memory” (no vector DB, just Markdown/TSV/YAML) and the conductor-worker batch pattern that already aligns with Icarus-Daedalus critique loops.</li>
+</ul>
+<h3 id="step-2-reverse-engineer-core-abstractions--pain-points-dissection-phase"><a class="header" href="#step-2-reverse-engineer-core-abstractions--pain-points-dissection-phase">Step 2: Reverse-Engineer Core Abstractions &amp; Pain Points (Dissection Phase)</a></h3>
+<ul>
+<li>Identify the 5 universal primitives that make Career-Ops powerful:
+<ol>
+<li>Opportunity Ingestion (URL/JD scanner).</li>
+<li>Multi-dimensional Evaluation (10 weighted criteria → A-F score).</li>
+<li>Personalized Artifact Generation (resume/PDF per opportunity).</li>
+<li>Persistent Tracking &amp; Deduplication (file-based history).</li>
+<li>HITL Orchestration + Action Loops (apply, negotiate, contact).</li>
+</ol>
+</li>
+<li>Catalog limitations: Claude Code dependency, Node/Playwright heaviness on edge devices, lack of true long-term cross-session memory evolution, single-LLM reliance.</li>
+<li>Map these primitives to your broader use cases (e.g., “startup pitch deck” instead of “resume,” “philanthropy impact score” instead of “role match”).</li>
+<li><strong>Output:</strong> A reusable “Opportunity Engine Blueprint” diagram (Mermaid or draw.io) showing what is domain-agnostic vs. job-specific.</li>
+</ul>
+<h3 id="step-3-abstract-into-a-domain-agnostic-framework-generalization-design-phase"><a class="header" href="#step-3-abstract-into-a-domain-agnostic-framework-generalization-design-phase">Step 3: Abstract into a Domain-Agnostic Framework (Generalization Design Phase)</a></h3>
+<ul>
+<li>Define the general problem as: “Continual, low-resource discovery + evaluation + personalization + pursuit of high-signal opportunities in any domain.”</li>
+<li>Create a canonical 6-layer architecture (inspired by Career-Ops but extensible):
+<ol>
+<li>Scanner Layer (APIs, web scraping, RSS, tweets, LinkedIn).</li>
+<li>Memory Layer (file/MD-first, tiered hot/warm/cold per Icarus Protocol).</li>
+<li>Evaluator Layer (small specialized LLMs or role-based agents).</li>
+<li>Generator Layer (personalized artifacts: pitch decks, grant proposals, etc.).</li>
+<li>Orchestrator Layer (conductor + critic loops).</li>
+<li>Action/HITL Layer (calendar, email, Git commits, etc.).</li>
+</ol>
+</li>
+<li>Document success metrics (e.g., signal-to-noise ratio, hours saved, opportunity quality score).</li>
+</ul>
+<h3 id="step-4-inventory--benchmark-alternative-multi-agent--memory-frameworks-alternatives-audit-phase"><a class="header" href="#step-4-inventory--benchmark-alternative-multi-agent--memory-frameworks-alternatives-audit-phase">Step 4: Inventory &amp; Benchmark Alternative Multi-Agent &amp; Memory Frameworks (Alternatives Audit Phase)</a></h3>
+<ul>
+<li>Systematically compare the alternatives you listed against Career-Ops primitives:
+<ul>
+<li><strong>File/MD-first champions</strong>: OpenClaw (RPi-native, MEMORY.md + SOUL.md, direct agent-to-agent messaging), MemU (hierarchical MD folders, autonomous organize/retrieve, no forced embeddings), memsearch (Markdown source-of-truth), BearClaw (JSON + MD sessions), 4-layer file architectures, Git-native DiffMem.</li>
+<li><strong>Role/critique-loop fits</strong>: CrewAI (easy creator + critic crews), LightAgent (mem0 + ToT + self-learning), Hermes/Icarus-Daedalus (native persistent memory + plugin model).</li>
+<li><strong>Heavier but useful</strong>: AutoGen/LangGraph (reflection patterns, file-backed checkpoints possible).</li>
+</ul>
+</li>
+<li>Score each on: Raspberry Pi / Mac Mini M4 compatibility, token efficiency, human readability, Git sync, cross-platform recall, and ease of replacing Claude Code with small LLMs.</li>
+<li><strong>Deliverable:</strong> A comparison matrix (Markdown table) + short proof-of-concept fork of 2–3 top candidates (e.g., OpenClaw + MemU).</li>
+</ul>
+<h3 id="step-5-choose--prototype-memory--small-llm-stack-lightweight-foundation-phase"><a class="header" href="#step-5-choose--prototype-memory--small-llm-stack-lightweight-foundation-phase">Step 5: Choose &amp; Prototype Memory + Small-LLM Stack (Lightweight Foundation Phase)</a></h3>
+<ul>
+<li>Prioritize your stated preference: Chroma (optional lightweight vector layer) + small specialized models (e.g., Phi-3, Gemma-2, or quantized Llama-3.1-8B) hosted locally via Ollama/LM Studio on Pi/M4.</li>
+<li>Implement or adapt the Icarus Memory Protocol (50-line bash/Python fabric tier) as the single source of truth.</li>
+<li>Add MemU or memsearch for hierarchical MD auto-organization and dual-mode retrieval (keyword + LLM).</li>
+<li>Test continual 24/7 operation: cron + headless agents scraping Indeed API, X/Twitter (via x_keyword_search patterns), LinkedIn (where possible), company RSS, etc.</li>
+<li>Validate: runs on &lt;4 GB RAM, survives reboots, human-editable via Obsidian/Git.</li>
+</ul>
+<h3 id="step-6-rebuild-the-evaluator--generator-layers-with-new-frameworks-core-engine-rebuild-phase"><a class="header" href="#step-6-rebuild-the-evaluator--generator-layers-with-new-frameworks-core-engine-rebuild-phase">Step 6: Rebuild the Evaluator &amp; Generator Layers with New Frameworks (Core Engine Rebuild Phase)</a></h3>
+<ul>
+<li>Port the 10-dimension scoring and archetype detection into role-based agents (e.g., Researcher + Critic + Personalizer in OpenClaw or CrewAI).</li>
+<li>Replace Claude-specific modes with pluggable skills (Hermes-style) or LightSwarm agents.</li>
+<li>Generalize artifact generation: use templates + small LLM prompting for startup one-pagers, philanthropy proposals, etc.</li>
+<li>Introduce creator-critic loops explicitly (mirroring Icarus-Daedalus) for self-review of evaluations.</li>
+</ul>
+<h3 id="step-7-integrate-continual-scanning--cross-session-collaboration-always-on-phase"><a class="header" href="#step-7-integrate-continual-scanning--cross-session-collaboration-always-on-phase">Step 7: Integrate Continual Scanning &amp; Cross-Session Collaboration (Always-On Phase)</a></h3>
+<ul>
+<li>Build a lightweight scanner daemon (Playwright or simpler requests + RSS) that feeds opportunities into the fabric memory tier.</li>
+<li>Add agent-to-agent handoffs (e.g., Scanner → Evaluator → Generator) via Markdown refs or OpenClaw messaging.</li>
+<li>Enable cross-device sync (Git pull/push or simple rsync) so a Pi runs 24/7 scanning while your M4 does heavy personalization.</li>
+<li>Add simple triggers: new tweet/LinkedIn post → opportunity candidate → auto-evaluation.</li>
+</ul>
+<h3 id="step-8-add-domain-specific-modules--hitl-interfaces-expansion-phase"><a class="header" href="#step-8-add-domain-specific-modules--hitl-interfaces-expansion-phase">Step 8: Add Domain-Specific Modules &amp; HITL Interfaces (Expansion Phase)</a></h3>
+<ul>
+<li>Create pluggable “Opportunity Domains”:
+<ul>
+<li>Job Search (original Career-Ops).</li>
+<li>Startup Foundation (evaluate founders, traction, market, cap table).</li>
+<li>Venture Philanthropy (impact scoring, alignment with your values, grant readiness).</li>
+</ul>
+</li>
+<li>Build minimal HITL dashboards (reuse or adapt the Go TUI, or simple web UI via BearClaw).</li>
+<li>Include negotiation/outreach generators for each domain.</li>
+</ul>
+<h3 id="step-9-iterate-measure-and-harden-validation--self-improvement-phase"><a class="header" href="#step-9-iterate-measure-and-harden-validation--self-improvement-phase">Step 9: Iterate, Measure, and Harden (Validation &amp; Self-Improvement Phase)</a></h3>
+<ul>
+<li>Run parallel A/B tests: original Career-Ops vs. your generalized version on the same opportunity set.</li>
+<li>Track quantitative metrics (opportunities processed/day, false-positive rate, edge-hardware uptime) and qualitative (your review time saved).</li>
+<li>Implement self-improvement: agents periodically review past decisions and update their own Markdown skill files or profile (Hermes/MemU style).</li>
+<li>Add resilience: retry logic, rate-limit handling, Git-backed versioning of memory.</li>
+</ul>
+<h3 id="step-10-document-open-source-and-evolve-the-generalized-system-legacy--community-phase"><a class="header" href="#step-10-document-open-source-and-evolve-the-generalized-system-legacy--community-phase">Step 10: Document, Open-Source, and Evolve the Generalized System (Legacy &amp; Community Phase)</a></h3>
+<ul>
+<li>Produce a “Generalized Opportunity Engine” repo with clear setup for Pi/M4, full Markdown-based memory protocol, and domain modules.</li>
+<li>Write a case-study mirror of santifer.io/career-ops-system but for your generalized version.</li>
+<li>Release under MIT, invite community extensions (new domains, new small models, new frameworks).</li>
+<li>Schedule quarterly “memory audits” where you (or a curator agent) prune/reorganize the fabric tiers.</li>
+</ul>
+<p><strong>Expected Outcome After 10 Steps</strong><br />
+You will have a production-grade, edge-deployable, continually running opportunity engine that is lighter than the original Career-Ops, more general-purpose, and fully aligned with the file-first, low-infra, Icarus-Daedalus philosophy you admire. It will run 24/7 on minimal hardware, use small specialized models where possible, and scale to any opportunity domain while keeping everything human-readable and Git-syncable.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+                            <a rel="next prefetch" href="Journal.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+                    <a rel="next prefetch" href="Journal.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

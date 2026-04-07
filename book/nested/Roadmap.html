@@ -1,0 +1,402 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>PKM Methodology - Opportunity Discovery and Pursuit Engine</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Opportunity Discovery and Pursuit Engine</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="roadmap"><a class="header" href="#roadmap">Roadmap</a></h1>
+<h1 id="the-agentic-knowledge-architect-a-100-day-plan-for-ai-driven-personal-knowledge-management"><a class="header" href="#the-agentic-knowledge-architect-a-100-day-plan-for-ai-driven-personal-knowledge-management"><strong>The Agentic Knowledge Architect: A 100-Day Plan for AI-Driven Personal Knowledge Management</strong></a></h1>
+<h2 id="introduction-the-shift-to-agentic-development"><a class="header" href="#introduction-the-shift-to-agentic-development"><strong>Introduction: The Shift to Agentic Development</strong></a></h2>
+<p>This 100-day plan outlines a comprehensive journey to overhaul a Personal Knowledge Management (PKM) system, leveraging the power of agentic AI. This endeavor is framed not as a traditional software project but as a practical immersion into a new paradigm: agentic software development.1 The traditional, imperative model of programming, where a developer explicitly defines every instruction, is giving way to an autonomous model. In this new approach, the developer's role evolves from that of a programmer to an</p>
+<p><strong>AI Conductor</strong> or <strong>System Architect</strong>. The primary task becomes defining high-level goals, establishing objectives, and setting appropriate boundaries within which an intelligent agent can operate autonomously to determine the specific implementation path.3</p>
+<p>The success of this 100-day project is contingent upon mastering the art of high-level task decomposition and fostering effective human-AI collaboration. This plan serves as a curriculum for that mastery, using the construction of a world-class PKM system as the practical application. The agentic assistant, exemplified by the open-source Cline extension for VS Code, will not merely assist with code completion but will function as an active development partner, capable of creating files, running terminal commands, and executing complex, multi-step tasks with a degree of autonomy.2</p>
+<p>The technology stack has been selected to create a cohesive, integrated ecosystem where each component serves a distinct strategic purpose. Cline acts as the agentic engine, VS Code provides the integrated development environment (IDE), and GitHub serves as the platform for version control, continuous integration/continuous deployment (CI/CD), and project management. The PKM itself will be built upon mdBook, a static site generator implemented in Rust, with the FOAM extension's conventions providing the framework for creating a networked knowledge graph.6 Extensibility will be achieved through Rust for high-performance</p>
+<p>mdBook preprocessors and Python for its rich ecosystem of data science and AI libraries. This strategic alignment of technologies is detailed in the table below.</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Component</th><th style="text-align: left">Category</th><th style="text-align: left">Strategic Role in Project</th></tr></thead><tbody>
+<tr><td style="text-align: left"><strong>Cline</strong></td><td style="text-align: left">Agentic Coding Assistant</td><td style="text-align: left">The core "builder" that autonomously executes development tasks based on high-level prompts.4</td></tr>
+<tr><td style="text-align: left"><strong>VS Code</strong></td><td style="text-align: left">Integrated Development Environment</td><td style="text-align: left">The central "workshop" where all development, agent interaction, and debugging occurs.5</td></tr>
+<tr><td style="text-align: left"><strong>GitHub</strong></td><td style="text-align: left">Collaboration &amp; CI/CD Platform</td><td style="text-align: left">The "scaffolding" for version control (Repo), automated deployment (Pages, Actions), and task management (Projects).11</td></tr>
+<tr><td style="text-align: left"><strong>mdBook</strong></td><td style="text-align: left">Static Knowledge Base Generator</td><td style="text-align: left">The foundational technology for creating a modern, searchable, and web-accessible book from Markdown files.6</td></tr>
+<tr><td style="text-align: left"><strong>FOAM</strong></td><td style="text-align: left">Note-Linking Framework</td><td style="text-align: left">The conceptual model and syntax ([[wikilinks]]) for creating a networked, Zettelkasten-style knowledge graph.7</td></tr>
+<tr><td style="text-align: left"><strong>Rust</strong></td><td style="text-align: left">Systems Programming Language</td><td style="text-align: left">The language for building high-performance, custom mdBook preprocessors to extend the PKM's core functionality.13</td></tr>
+<tr><td style="text-align: left"><strong>Python</strong></td><td style="text-align: left">Data Science &amp; Scripting Language</td><td style="text-align: left">The language for advanced features like Natural Language Processing (NLP), search indexing, and extending Cline's capabilities via MCP.16</td></tr>
+<tr><td style="text-align: left"><strong>OpenRouter</strong></td><td style="text-align: left">LLM API Gateway</td><td style="text-align: left">A unified interface to access a wide variety of Large Language Models (LLMs), enabling flexibility and cost management.5</td></tr>
+<tr><td style="text-align: left"><strong>Docker</strong></td><td style="text-align: left">Containerization Platform</td><td style="text-align: left">A tool to create a reproducible development and build environment, ensuring consistency and simplifying setup.20</td></tr>
+<tr><td style="text-align: left"><strong>Google Jules</strong></td><td style="text-align: left">Comparative Agentic Platform</td><td style="text-align: left">An alternative agentic system for a comparative analysis of different development workflows and architectures.22</td></tr>
+<tr><td style="text-align: left"><strong>Modular Platform</strong></td><td style="text-align: left">High-Performance AI Platform</td><td style="text-align: left">An exploratory platform (including Mammoth, Mojo, MAX) for investigating future performance optimizations for AI/ML tasks.24</td></tr>
+</tbody></table>
+</div>
+<h2 id="phase-i-foundations-and-environment-setup-days-1-20"><a class="header" href="#phase-i-foundations-and-environment-setup-days-1-20"><strong>Phase I: Foundations and Environment Setup (Days 1-20)</strong></a></h2>
+<p>This initial phase is dedicated to constructing a robust "mission control" for the entire 100-day project. The objective is to establish a fully automated, version-controlled, and meticulously structured environment before commencing any significant feature development. This front-loading of infrastructure work is a critical investment that ensures stability and efficiency over the long term. A key principle of this phase is to apply the tools of the project <em>to</em> the project itself, creating a virtuous cycle of learning and practical application from the very first day.</p>
+<h3 id="week-1-project-scaffolding-modules-1-7"><a class="header" href="#week-1-project-scaffolding-modules-1-7"><strong>Week 1: Project Scaffolding (Modules 1-7)</strong></a></h3>
+<p>The first week focuses on creating the digital skeleton of the project. This involves initializing the code repository, setting up the project management tools, and performing an initial manual deployment to understand the end-to-end process.</p>
+<h4 id="modules-1-2-github-repository-and-project-initialization"><a class="header" href="#modules-1-2-github-repository-and-project-initialization"><strong>Modules 1-2: GitHub Repository and Project Initialization</strong></a></h4>
+<p>The foundation begins with a new GitHub repository. To accelerate the setup of the PKM's structure, the project will be bootstrapped using the foam-template.7 This template provides a pre-configured VS Code workspace with recommended extensions (</p>
+<p>.vscode/extensions.json) and settings (.vscode/settings.json) optimized for knowledge management tasks, such as Markdown All In One and Prettier.28 Within this repository, a new</p>
+<p>mdBook project will be initialized in a dedicated /book subdirectory, creating the initial src directory and SUMMARY.md file that will house the PKM content.6</p>
+<h4 id="modules-3-5-mission-control-with-github-projects"><a class="header" href="#modules-3-5-mission-control-with-github-projects"><strong>Modules 3-5: Mission Control with GitHub Projects</strong></a></h4>
+<p>To effectively manage a 100-day endeavor, this entire plan will be translated into a functional project board using GitHub Projects. This approach makes the project plan itself a dynamic, version-controlled artifact. A new GitHub Project will be created, and an issue will be opened for each of the 100 modules. These issues will be organized into phases and categorized using custom fields to track status (e.g., To Do, In Progress, Done), module type (e.g., Setup, Rust, Python, Exploration), and estimated complexity. This immediate application of GitHub Projects transforms project management from a peripheral task into a core component of the learning experience.</p>
+<h4 id="modules-6-7-first-deployment---manual-cicd"><a class="header" href="#modules-6-7-first-deployment---manual-cicd"><strong>Modules 6-7: First Deployment - Manual CI/CD</strong></a></h4>
+<p>Before automating the deployment process, it is crucial to understand the underlying mechanics. This module involves a manual deployment of the nascent mdBook to GitHub Pages. The repository settings will be configured to deploy from a specific branch, typically gh-pages. The mdbook build command will be run locally to generate the static site in the book/book directory. The contents of this output directory will then be manually committed and pushed to the gh-pages branch. This exercise provides a clear baseline understanding of the build artifacts and the deployment mechanism that will be automated in a later phase.11</p>
+<h3 id="week-2-agent-installation-and-first-contact-modules-8-14"><a class="header" href="#week-2-agent-installation-and-first-contact-modules-8-14"><strong>Week 2: Agent Installation and First Contact (Modules 8-14)</strong></a></h3>
+<p>With the project structure in place, the second week is dedicated to installing, configuring, and establishing a working relationship with the core agentic assistant, Cline.</p>
+<h4 id="modules-8-10-installing-and-configuring-cline"><a class="header" href="#modules-8-10-installing-and-configuring-cline"><strong>Modules 8-10: Installing and Configuring Cline</strong></a></h4>
+<p>The primary tool for this project, the Cline VS Code extension, will be installed from the marketplace.4 Configuration is the next critical step. An API key from OpenRouter will be generated and added to the Cline settings.5 OpenRouter serves as a powerful API gateway, providing access to a multitude of LLMs from various providers like Anthropic, Google, and OpenAI.18 Initial experiments will be conducted using different models, such as the powerful</p>
+<p>anthropic/claude-3.5-sonnet for complex tasks and the free-tier google/gemini-2.0-flash-exp:free for simpler operations, to gain an intuitive understanding of the cost-performance trade-offs inherent in different models.5</p>
+<h4 id="modules-11-14-mastering-clines-core-interactions"><a class="header" href="#modules-11-14-mastering-clines-core-interactions"><strong>Modules 11-14: Mastering Cline's Core Interactions</strong></a></h4>
+<p>Effective use of an agentic assistant requires learning its interaction patterns. This period will be spent practicing fundamental tasks. Simple, declarative prompts will be used, such as: "Create a new file named TODO.md and add three items," or "Read the README.md file and provide a one-paragraph summary." A crucial distinction to master is the difference between Cline's two primary modes: "Plan" mode, which allows for read-only exploration and task decomposition, and "Act" mode, which executes the proposed changes.33 The "Auto-approve" settings will be explored to understand the balance between the rapid, fluid experience of "vibe coding" and the safety and control of manually approving each step.33 Finally, Cline's ability to interact with the integrated terminal will be tested by instructing it to run commands like</p>
+<p>ls -R to recursively list the project's file structure, confirming its ability to observe and interact with its environment.4</p>
+<h3 id="week-3-full-automation-with-github-actions-modules-15-20"><a class="header" href="#week-3-full-automation-with-github-actions-modules-15-20"><strong>Week 3: Full Automation with GitHub Actions (Modules 15-20)</strong></a></h3>
+<p>The final week of the foundational phase focuses on automating the entire build and deployment pipeline, transitioning from the manual process established in Week 1 to a fully autonomous CI/CD workflow. This task itself will be delegated to the agent, serving as a perfect, self-contained test of its capabilities.</p>
+<h4 id="modules-15-20-building-the-cicd-pipeline"><a class="header" href="#modules-15-20-building-the-cicd-pipeline"><strong>Modules 15-20: Building the CI/CD Pipeline</strong></a></h4>
+<p>Instead of manually authoring a YAML configuration file, a high-level, declarative prompt will be given to Cline. For example: "Create a GitHub Actions workflow file at .github/workflows/deploy.yml. This workflow must trigger on every push to the main branch. It should set up a Rust environment, install a specific version of mdBook, execute the mdbook build command, and then use the peaceiris/actions-gh-pages action to deploy the contents of the ./book/book output directory to the gh-pages branch."</p>
+<p>This approach forces a shift in thinking from syntactic detail to strategic intent. Cline will generate a plan and the corresponding YAML file for review and approval.12 Once the generated workflow file is committed and pushed to the</p>
+<p>main branch, the GitHub Actions runner will be triggered. The successful execution of this workflow will confirm that the site is now being built and deployed automatically. Any errors encountered in the runner's logs will be fed back to Cline for troubleshooting, further simulating a real-world human-AI collaborative debugging session. As a final step, the output.html.site-url setting in book.toml will be configured to ensure that the auto-generated 404 page links correctly within the GitHub Pages environment.11</p>
+<h2 id="phase-ii-core-pkm-enhancements-via-agentic-rust-development-days-21-50"><a class="header" href="#phase-ii-core-pkm-enhancements-via-agentic-rust-development-days-21-50"><strong>Phase II: Core PKM Enhancements via Agentic Rust Development (Days 21-50)</strong></a></h2>
+<p>This phase represents the core of the project, where the PKM system is actively built out with custom features. The primary method will be directing Cline to develop mdBook preprocessors in Rust. The mdBook preprocessor architecture provides an ideal "bounded decision space" for an agent to operate within.3 It has a clearly defined interface—receiving a JSON representation of the book on</p>
+<p>stdin and returning a modified version on stdout—a specific language (Rust), and a clear build/test cycle (cargo build). This structure transforms the complex task of software engineering into a series of discrete, measurable, and agent-friendly modules, mitigating risk and making progress verifiable.13</p>
+<h3 id="week-4-introduction-to-rust-and-preprocessors-modules-21-27"><a class="header" href="#week-4-introduction-to-rust-and-preprocessors-modules-21-27"><strong>Week 4: Introduction to Rust and Preprocessors (Modules 21-27)</strong></a></h3>
+<p>Before building complex features, a foundational understanding of Rust and the preprocessor mechanism is necessary. This will be achieved by having Cline act as both a coder and a tutor.</p>
+<h4 id="modules-21-24-rust-fundamentals-through-cline"><a class="header" href="#modules-21-24-rust-fundamentals-through-cline"><strong>Modules 21-24: Rust Fundamentals through Cline</strong></a></h4>
+<p>The initial foray into Rust will be guided by the agent. A /scratch directory will be created for experimentation. Prompts will be structured to elicit both code and explanation, such as: "Create a new Rust project in /scratch named rust_basics. Write a 'Hello, World!' program. Now, modify it to read a line of text from the user and print it back. In your response, explain the concepts of let, mut, String, and the :: operator." Cline's terminal integration will be used to compile and run the code with cargo run, providing immediate feedback.</p>
+<h4 id="modules-25-27-the-preprocessor-hello-world"><a class="header" href="#modules-25-27-the-preprocessor-hello-world"><strong>Modules 25-27: The Preprocessor "Hello, World!"</strong></a></h4>
+<p>The next step is to have Cline create a skeleton mdBook preprocessor. The prompt will be specific and reference the official documentation: "Following the mdBook preprocessor development guide, create a new Rust binary crate named mdbook-nop. Implement the Preprocessor trait to create a no-op preprocessor. This program should parse the book JSON from stdin and write the unmodified book JSON back to stdout. Finally, add the necessary configuration to the project's book.toml file to enable this preprocessor".13 This establishes a working baseline for all subsequent preprocessor development.</p>
+<h3 id="week-5-6-agentic-solution-to-the-wikilink-problem-modules-28-41"><a class="header" href="#week-5-6-agentic-solution-to-the-wikilink-problem-modules-28-41"><strong>Week 5-6: Agentic Solution to the Wikilink Problem (Modules 28-41)</strong></a></h3>
+<p>The first major feature to be implemented is support for [[wikilinks]], a cornerstone of modern networked note-taking tools like Foam and Roam Research.7</p>
+<h4 id="modules-28-35-building-the-wikilink-preprocessor"><a class="header" href="#modules-28-35-building-the-wikilink-preprocessor"><strong>Modules 28-35: Building the Wikilink Preprocessor</strong></a></h4>
+<p>This multi-step task will require iterative guidance. The initial prompt will be: "Modify the mdbook-nop preprocessor, renaming the crate to mdbook-wikilink. The goal is to parse the content of each book chapter. Use the regex crate to find all occurrences of the pattern ]. For each match, convert it into a standard Markdown link in the format (./some-note-title.md). The link destination must be a 'slugified' version of the note title (lowercase, with spaces replaced by hyphens)."</p>
+<p>Cline will propose a plan, which will include adding the regex crate to Cargo.toml. The user will review the generated Rust code (presented as a diff) and provide feedback. The logic will be implemented within the run method of the Preprocessor trait. The user will test the functionality by adding sample wikilinks to their markdown files and running mdbook build, inspecting the generated HTML to verify the transformation. Edge cases, such as aliased links like ], will be addressed in subsequent prompts.</p>
+<h4 id="modules-36-41-refining-and-testing-the-preprocessor"><a class="header" href="#modules-36-41-refining-and-testing-the-preprocessor"><strong>Modules 36-41: Refining and Testing the Preprocessor</strong></a></h4>
+<p>With the basic functionality working, the focus shifts to robustness and quality. A follow-up prompt will be: "The mdbook-wikilink preprocessor is functional but fragile. Enhance it with logic to check if the target file (e.g., some-note-title.md) actually exists within the src directory. If the target file is missing, the generated link should be given a specific CSS class, such as class='broken-link', to allow for distinct visual styling. Additionally, write unit tests using Rust's #[test] attribute to verify the slugification logic for various inputs." This task requires the agent to interact with the filesystem using Rust's std::path::Path module, demonstrating a more advanced capability.</p>
+<h3 id="week-7-generating-a-knowledge-graph-modules-42-50"><a class="header" href="#week-7-generating-a-knowledge-graph-modules-42-50"><strong>Week 7: Generating a Knowledge Graph (Modules 42-50)</strong></a></h3>
+<p>This week focuses on implementing two advanced PKM features: automatic backlink generation and tag indexing.14 Generating backlinks presents a unique challenge that requires a more sophisticated architecture than a single-pass preprocessor. To inject a list of backlinks into a page, the system must first have a complete map of all links across the entire book. A standard preprocessor, which processes chapters sequentially, cannot know about links from chapters it has not yet seen. The solution is a two-pass system, a classic compiler design pattern that can be orchestrated agentically.</p>
+<h4 id="modules-42-47-the-backlink-generator-two-pass-system"><a class="header" href="#modules-42-47-the-backlink-generator-two-pass-system"><strong>Modules 42-47: The Backlink Generator (Two-Pass System)</strong></a></h4>
+<p>The problem is decomposed into two distinct, agent-driven tasks:</p>
+<ol>
+<li><strong>Pass 1 (Collection):</strong> A prompt will be given to create the first preprocessor: "Create a new Rust preprocessor named mdbook-link-collector. In its run method, it must iterate through every chapter and parse the content to find all wikilinks. It should build an in-memory data structure, like a HashMap&lt;String, Vec&lt;String&gt;&gt;, that maps each link target to a list of the source file paths that link to it. After processing all chapters, this preprocessor must serialize the data structure to a JSON file named link_graph.json in the book's root directory. Crucially, this preprocessor should not modify the book's content."</li>
+<li><strong>Pass 2 (Injection):</strong> A second prompt will define the next stage: "Create a second preprocessor, mdbook-backlink-injector. In the book.toml file, ensure it is configured to run <em>after</em> the mdbook-link-collector. In its run method, it must first read and deserialize the link_graph.json file. Then, for each chapter it processes, it should look up its own path in the loaded link graph. If any backlinks are found, it must append a 'Backlinks' section to the end of the chapter's content, formatted as a Markdown list of links to the source pages."</li>
+</ol>
+<h4 id="modules-48-50-the-tag-indexer"><a class="header" href="#modules-48-50-the-tag-indexer"><strong>Modules 48-50: The Tag Indexer</strong></a></h4>
+<p>The final feature of this phase is a tag index. The agentic task will be: "Create a new preprocessor named mdbook-tag-indexer. It must scan all markdown files for tags, which can be denoted by hashtags (e.g., #project-management) or defined in YAML frontmatter. After collecting all tags and the pages they appear on, it should generate a new virtual chapter, tags.md, and add it to the book. This new chapter should contain an alphabetized index of all tags, with each tag followed by a list of links to the corresponding pages."</p>
+<h2 id="phase-iii-advanced-ai-and-python-ecosystem-integration-days-51-80"><a class="header" href="#phase-iii-advanced-ai-and-python-ecosystem-integration-days-51-80"><strong>Phase III: Advanced AI and Python Ecosystem Integration (Days 51-80)</strong></a></h2>
+<p>This phase shifts focus from the Rust-based structural enhancements to integrating the intelligence and analytical power of the Python ecosystem. A key capability of an advanced agent like Cline is its ability to operate as a polyglot programmer, orchestrating interactions between different languages. This phase will leverage that skill by directing Cline to write Python for high-level logic (e.g., search indexing, NLP) and Rust for the low-level integration needed to connect these Python scripts into the mdBook build process. This mirrors sophisticated, real-world software architectures and provides a strenuous test of the agentic workflow.</p>
+<h3 id="week-8-building-a-full-text-search-engine-modules-51-60"><a class="header" href="#week-8-building-a-full-text-search-engine-modules-51-60"><strong>Week 8: Building a Full-Text Search Engine (Modules 51-60)</strong></a></h3>
+<p>While mdBook has built-in search, a custom solution offers greater flexibility and serves as an excellent integration project. The Python library Whoosh is a fast, pure-Python search library ideal for this purpose.39 The integration will be a two-part process, bridged by a Rust preprocessor.</p>
+<h4 id="modules-51-55-agentic-python-scripting-with-whoosh"><a class="header" href="#modules-51-55-agentic-python-scripting-with-whoosh"><strong>Modules 51-55: Agentic Python Scripting with Whoosh</strong></a></h4>
+<p>The first task is to have Cline write the core indexing logic in Python. The prompt will be: "Create a new Python script at scripts/indexer.py. This script must use the Whoosh library. It needs to define a search schema with fields for path, title, and content, where content is the main searchable text. The script should be able to walk the book/src directory, read the content of each .md file, and add it as a document to a Whoosh index that it creates in a new book/search_index directory".39</p>
+<h4 id="modules-56-60-integrating-python-and-rust"><a class="header" href="#modules-56-60-integrating-python-and-rust"><strong>Modules 56-60: Integrating Python and Rust</strong></a></h4>
+<p>With the Python indexer script complete, the next step is to integrate it into the mdBook build lifecycle. This requires a Rust preprocessor to act as an orchestrator. The agentic task is: "Create a new Rust preprocessor crate named mdbook-search-indexer. The sole purpose of this preprocessor is to execute the python scripts/indexer.py command during the mdbook build process. Use Rust's std::process::Command module to run the script. Ensure that the preprocessor correctly handles the working directory and that any errors or non-zero exit codes from the Python script are propagated, causing the mdBook build to fail." The final part of this module would involve having Cline write the necessary client-side JavaScript for the mdBook theme to query this new search index.</p>
+<h3 id="week-9-10-nlp-powered-knowledge-discovery-modules-61-75"><a class="header" href="#week-9-10-nlp-powered-knowledge-discovery-modules-61-75"><strong>Week 9-10: NLP-Powered Knowledge Discovery (Modules 61-75)</strong></a></h3>
+<p>This section leverages Python's powerful NLP libraries, particularly spaCy, to automatically extract metadata and generate insights from the raw text of the PKM notes.43 This adds a layer of intelligence that can surface connections and categorize information without manual effort.</p>
+<h4 id="modules-61-68-named-entity-recognition-and-auto-tagging"><a class="header" href="#modules-61-68-named-entity-recognition-and-auto-tagging"><strong>Modules 61-68: Named-Entity Recognition and Auto-Tagging</strong></a></h4>
+<p>The goal is to automatically identify and tag key entities within notes. The agentic task will be: "Create a Python script scripts/nlp_processor.py that uses the spaCy library. The script must accept a markdown file path as a command-line argument. It should load the file, extract the plain text, and process it with one of spaCy's pre-trained models (e.g., en_core_web_sm) to perform Named-Entity Recognition (NER). For each entity recognized (such as PERSON, ORG, GPE), it should generate a corresponding tag. The script should output a JSON object containing a list of these discovered tags".43 A subsequent task will direct Cline to create another Rust preprocessor that runs this script for each file during the build and injects the discovered tags into the file's YAML frontmatter.</p>
+<h4 id="modules-69-75-automatic-summarization-and-keyword-extraction"><a class="header" href="#modules-69-75-automatic-summarization-and-keyword-extraction"><strong>Modules 69-75: Automatic Summarization and Keyword Extraction</strong></a></h4>
+<p>Building on the NLP processor, more advanced features will be added. The prompt will be: "Enhance scripts/nlp_processor.py. Add a function that generates a concise, one-paragraph summary of the input text. Add another function that extracts the top 5 most relevant keywords using a method like TF-IDF or by analyzing noun chunks. The script's JSON output should be updated to include these new fields: summary and keywords." This will likely involve exploring more of the spaCy or Scikit-learn ecosystems.16 The results can then be integrated via a preprocessor to create index pages that display summaries for quick topic overviews, significantly improving the discoverability of knowledge within the system.</p>
+<h3 id="week-11-extending-the-agent-itself-with-mcp-modules-76-80"><a class="header" href="#week-11-extending-the-agent-itself-with-mcp-modules-76-80"><strong>Week 11: Extending the Agent Itself with MCP (Modules 76-80)</strong></a></h3>
+<p>This week marks a pivotal transition: moving from being a <em>user</em> of the agent's tools to a <em>creator</em> of new tools for the agent. The Model Context Protocol (MCP) allows developers to extend an agent's capabilities by exposing new functions it can call.4 This is the ultimate form of customization, graduating from prompting in natural language to programming the agent's core abilities. The ultimate test of the agentic workflow is to have the agent build an extension for itself.</p>
+<h4 id="modules-76-80-building-a-custom-pkm-search-tool-for-cline"><a class="header" href="#modules-76-80-building-a-custom-pkm-search-tool-for-cline"><strong>Modules 76-80: Building a Custom PKM Search Tool for Cline</strong></a></h4>
+<p>The prompt for this capstone task will be: "Add a tool that allows you to directly query my PKM's Whoosh search index from our chat. To achieve this, create a Python MCP server using the fastmcp library, as described in its documentation.17 This server must expose a tool named</p>
+<p>search_pkm that accepts a query_string as an argument. When called, this tool should use the Whoosh library to search the index located at book/search_index and return the top three search results as a formatted string."</p>
+<p>Once Cline has built and the user has launched this MCP server, the interaction model changes. The user can now issue commands like: "Use your search_pkm tool to find notes related to 'agentic frameworks' and then write a summary of your findings." This closes the loop: the agent is now actively using the very systems and tools that it helped to build, creating a powerful, self-referential development environment.</p>
+<h2 id="phase-iv-exploration-optimization-and-synthesis-days-81-100"><a class="header" href="#phase-iv-exploration-optimization-and-synthesis-days-81-100"><strong>Phase IV: Exploration, Optimization, and Synthesis (Days 81-100)</strong></a></h2>
+<p>The final phase of this 100-day journey is dedicated to advanced topics, ensuring the project's long-term viability, and, most importantly, synthesizing the lessons learned about the agentic development process. The focus shifts from feature creation to system hardening, comparative analysis, and future planning.</p>
+<h3 id="week-12-reproducibility-and-comparative-analysis-modules-81-90"><a class="header" href="#week-12-reproducibility-and-comparative-analysis-modules-81-90"><strong>Week 12: Reproducibility and Comparative Analysis (Modules 81-90)</strong></a></h3>
+<p>This week focuses on making the project robust and portable while also broadening the understanding of the agentic landscape by experimenting with a different tool.</p>
+<h4 id="modules-81-85-containerizing-the-environment-with-docker"><a class="header" href="#modules-81-85-containerizing-the-environment-with-docker"><strong>Modules 81-85: Containerizing the Environment with Docker</strong></a></h4>
+<p>To ensure the entire development and build environment is perfectly reproducible, it will be packaged into a Docker container. The docker init command, which automates the creation of Docker assets, is an ideal starting point for an agent.20 The agentic task will be: "Use</p>
+<p>docker init to generate a Dockerfile for our project. Modify the generated file to use a multi-stage build.21 The initial 'builder' stage should install the full Rust toolchain and Python with all dependencies. The final, production-ready image should be minimal, containing only the compiled Rust preprocessors, the Python scripts, their dependencies, and the</p>
+<p>mdBook binary. Also, create a compose.yaml file that defines a service to run the mdbook serve command and maps the necessary ports for local development."</p>
+<h4 id="modules-86-90-a-comparative-experiment-with-google-jules"><a class="header" href="#modules-86-90-a-comparative-experiment-with-google-jules"><strong>Modules 86-90: A Comparative Experiment with Google Jules</strong></a></h4>
+<p>To gain a broader perspective on agentic architectures, a comparative analysis will be conducted using Google Jules. Jules represents a different approach: it is an asynchronous, cloud-based agent that interacts with repositories primarily through pull requests.22 The GitHub repository for the PKM project will be connected to Jules. A well-defined, self-contained task previously completed by Cline (e.g., "Add unit tests for the wikilink slugification logic") will be assigned to Jules. The experience will be documented in a new PKM note, comparing and contrasting the two workflows: Jules' asynchronous, PR-driven model versus Cline's synchronous, local, in-editor interaction model. This provides invaluable firsthand experience with the strengths and weaknesses of different agentic systems.</p>
+<h3 id="week-13-future-proofing-and-exploration-modules-91-100"><a class="header" href="#week-13-future-proofing-and-exploration-modules-91-100"><strong>Week 13: Future-Proofing and Exploration (Modules 91-100)</strong></a></h3>
+<p>The final week is about looking ahead, finalizing the project, and reflecting on the journey.</p>
+<h4 id="modules-91-95-exploring-high-performance-ai-with-modular--mojo"><a class="header" href="#modules-91-95-exploring-high-performance-ai-with-modular--mojo"><strong>Modules 91-95: Exploring High-Performance AI with Modular &amp; Mojo</strong></a></h4>
+<p>This is an exploratory module designed to provide a forward-looking perspective on the future of AI programming. The Modular SDK will be installed, and a "Hello, World!" program will be written in Mojo, a language designed to combine Python's usability with systems-level performance.26 A prompt will be given to Cline: "Explain the key differences between Python and Mojo, focusing on why Mojo is designed to be significantly faster for AI and machine learning workloads.52" The goal is not to build a new feature but to understand the landscape of high-performance AI computing, which could inform future optimizations of the PKM's NLP and search capabilities.</p>
+<h4 id="modules-96-98-system-hardening-and-documentation"><a class="header" href="#modules-96-98-system-hardening-and-documentation"><strong>Modules 96-98: System Hardening and Documentation</strong></a></h4>
+<p>A project is not complete without proper documentation. This task will be delegated to the agent that built the system. The prompt will be: "Perform a comprehensive review of the entire project. Identify any functions in the Rust and Python code that lack documentation comments and add them. Create a new CONTRIBUTING.md file that explains the project's architecture, how to set up the development environment using the Docker container, and the process for building the book. Finally, generate a comprehensive README.md for the root of the repository, detailing the project's purpose, its key features, and how to use them."</p>
+<h4 id="modules-99-100-synthesis-and-future-roadmap"><a class="header" href="#modules-99-100-synthesis-and-future-roadmap"><strong>Modules 99-100: Synthesis and Future Roadmap</strong></a></h4>
+<p>The final two days are for reflection and planning. A meta-note will be created within the newly built PKM titled "Reflections on 100 Days of Agentic Development." This document will synthesize the key learnings from the journey, including the paradigm shift from programmer to AI conductor, the practical strengths and weaknesses of the Cline-based workflow, and the most effective strategies for decomposing complex problems for an AI agent. To conclude the project, a new board in GitHub Projects titled "PKM v2.0 Roadmap" will be created. This board will be populated with future ideas that emerged during the 100 days, such as integrating a vector database for semantic search, creating a new agentic tool for automatic knowledge graph visualization, or exploring a Mojo-based preprocessor for ultra-fast NLP tasks. This final step ensures the project does not end but rather establishes a clear path for its continued, agent-assisted evolution.</p>
+<h2 id="conclusion"><a class="header" href="#conclusion"><strong>Conclusion</strong></a></h2>
+<p>This 100-day plan presents a structured methodology for not only building a highly customized, AI-enhanced Personal Knowledge Management system but also for acquiring deep, practical expertise in the emergent field of agentic software development. The journey is designed to systematically transition the developer's role from a direct implementer of code to a high-level architect and conductor of an autonomous AI agent.</p>
+<p>The key takeaways from this proposed plan are threefold:</p>
+<ol>
+<li><strong>Decomposition is the Master Skill:</strong> The effectiveness of an agentic workflow is directly proportional to the developer's ability to decompose large, ambiguous goals into a series of clear, verifiable, and self-contained tasks. The modular nature of mdBook preprocessors and the distinct phases of the plan are designed to cultivate this skill.</li>
+<li><strong>The Environment is the Contract:</strong> Establishing a robust, automated, and observable environment (via GitHub, CI/CD, and Docker) is paramount. This environment serves as the "contract" between the human and the AI, providing the necessary guardrails, feedback loops, and verification mechanisms that make autonomous operation both possible and safe.</li>
+<li><strong>Human-AI Collaboration is Iterative:</strong> The process is not a "fire-and-forget" delegation. It is a continuous, iterative dialogue. The developer provides the strategic intent, the agent proposes a tactical plan and implementation, and the developer reviews, refines, and guides the process. Mastering this collaborative loop—knowing when to give precise instructions versus when to allow for more autonomy—is the central learning objective.</li>
+</ol>
+<p>By completing this 100-module plan, the end result is not merely a piece of software, but a powerful, self-evolving knowledge system and, more importantly, a profound shift in the mental model of how software is created. The developer emerges not just with a new tool, but with a new, more leveraged, and future-proof way of building. The PKM becomes the first artifact of a new practice, setting the stage for tackling increasingly complex projects through the paradigm of human-AI partnership.</p>
+<h4 id="works-cited"><a class="header" href="#works-cited"><strong>Works cited</strong></a></h4>
+<ol>
+<li>Introduction to Agentic Programming Part 1 - RIIS LLC, accessed September 5, 2025, <a href="https://www.riis.com/blog/introduction-to-agentic-programming-part-1">https://www.riis.com/blog/introduction-to-agentic-programming-part-1</a></li>
+<li>How is Agentic AI Transforming Code Generation in Modern Development? - Monetizely, accessed September 5, 2025, <a href="https://www.getmonetizely.com/articles/how-is-agentic-ai-transforming-code-generation-in-modern-development">https://www.getmonetizely.com/articles/how-is-agentic-ai-transforming-code-generation-in-modern-development</a></li>
+<li>The Agentic AI Design Paradigm: Reshaping How We Build Software - Destination CRM, accessed September 5, 2025, <a href="https://www.destinationcrm.com/Articles/Web-Exclusives/Viewpoints/The-Agentic-AI-Design-Paradigm-Reshaping-How-We-Build-Software-169958.aspx">https://www.destinationcrm.com/Articles/Web-Exclusives/Viewpoints/The-Agentic-AI-Design-Paradigm-Reshaping-How-We-Build-Software-169958.aspx</a></li>
+<li>Cline - Visual Studio Marketplace, accessed September 5, 2025, <a href="https://marketplace.visualstudio.com/items?itemName=saoudrizwan.claude-dev">https://marketplace.visualstudio.com/items?itemName=saoudrizwan.claude-dev</a></li>
+<li>Getting Started with Cline in VS Code | Egirna Technologies, accessed September 5, 2025, <a href="https://www.egirna.com/blog/news-2/getting-started-with-cline-in-vs-code-22">https://www.egirna.com/blog/news-2/getting-started-with-cline-in-vs-code-22</a></li>
+<li>rust-lang/mdBook: Create book from markdown files. Like Gitbook but implemented in Rust, accessed September 5, 2025, <a href="https://github.com/rust-lang/mdBook">https://github.com/rust-lang/mdBook</a></li>
+<li>A personal knowledge management and sharing system for ... - Foam, accessed September 5, 2025, <a href="https://foambubble.github.io/foam/">https://foambubble.github.io/foam/</a></li>
+<li>cline/cline: Autonomous coding agent right in your IDE, capable of creating/editing files, executing commands, using the browser, and more with your permission every step of the way. - GitHub, accessed September 5, 2025, <a href="https://github.com/cline/cline">https://github.com/cline/cline</a></li>
+<li>What Makes a Coding Agent? - Cline Blog, accessed September 5, 2025, <a href="https://cline.bot/blog/what-makes-a-coding-agent">https://cline.bot/blog/what-makes-a-coding-agent</a></li>
+<li>Home · cline/cline Wiki - GitHub, accessed September 5, 2025, <a href="https://github.com/cline/cline/wiki">https://github.com/cline/cline/wiki</a></li>
+<li>Continuous Integration - mdBook Documentation - GitHub Pages, accessed September 5, 2025, <a href="https://rust-lang.github.io/mdBook/continuous-integration.html">https://rust-lang.github.io/mdBook/continuous-integration.html</a></li>
+<li>A GitHub Action to automatically build and deploy your mdbook project., accessed September 5, 2025, <a href="https://github.com/XAMPPRocky/deploy-mdbook">https://github.com/XAMPPRocky/deploy-mdbook</a></li>
+<li>Preprocessors - mdBook Documentation, accessed September 5, 2025, <a href="https://rust-lang.github.io/mdBook/for_developers/preprocessors.html">https://rust-lang.github.io/mdBook/for_developers/preprocessors.html</a></li>
+<li>Foam - Visual Studio Marketplace, accessed September 5, 2025, <a href="https://marketplace.visualstudio.com/items?itemName=foam.foam-vscode">https://marketplace.visualstudio.com/items?itemName=foam.foam-vscode</a></li>
+<li>Building code inside an mdbook preprocessor - Rust Users Forum, accessed September 5, 2025, <a href="https://users.rust-lang.org/t/building-code-inside-an-mdbook-preprocessor/64241">https://users.rust-lang.org/t/building-code-inside-an-mdbook-preprocessor/64241</a></li>
+<li>Top 30 Python Libraries To Know in 2025 - Great Learning, accessed September 5, 2025, <a href="https://www.mygreatlearning.com/blog/open-source-python-libraries/">https://www.mygreatlearning.com/blog/open-source-python-libraries/</a></li>
+<li>How to Build a Python MCP Server to Consult a Knowledge Base - Auth0, accessed September 5, 2025, <a href="https://auth0.com/blog/build-python-mcp-server-for-blog-search/">https://auth0.com/blog/build-python-mcp-server-for-blog-search/</a></li>
+<li>OpenRouter API Reference | Complete API Documentation, accessed September 5, 2025, <a href="https://openrouter.ai/docs/api-reference/overview">https://openrouter.ai/docs/api-reference/overview</a></li>
+<li>llms.txt - OpenRouter, accessed September 5, 2025, <a href="https://openrouter.ai/docs/llms.txt">https://openrouter.ai/docs/llms.txt</a></li>
+<li>Develop your Rust application - Docker Docs, accessed September 5, 2025, <a href="https://docs.docker.com/guides/rust/develop/">https://docs.docker.com/guides/rust/develop/</a></li>
+<li>A Practical Guide To Containerize Your Rust Application With Docker - ITNEXT, accessed September 5, 2025, <a href="https://itnext.io/a-practical-guide-to-containerize-your-rust-application-with-docker-77e8a391b4a8">https://itnext.io/a-practical-guide-to-containerize-your-rust-application-with-docker-77e8a391b4a8</a></li>
+<li>Google Jules: The Complete Guide to Google's AI Coding Agent | Entelligence Blog, accessed September 5, 2025, <a href="https://www.entelligence.ai/blogs/google-jules-free-async-ai-for-debugging-code">https://www.entelligence.ai/blogs/google-jules-free-async-ai-for-debugging-code</a></li>
+<li>Jules: Google's autonomous AI coding agent - The Keyword, accessed September 5, 2025, <a href="https://blog.google/technology/google-labs/jules/">https://blog.google/technology/google-labs/jules/</a></li>
+<li>Intro to Mammoth - Modular docs, accessed September 5, 2025, <a href="https://docs.modular.com/mammoth/">https://docs.modular.com/mammoth/</a></li>
+<li>Modular Documentation | Modular, accessed September 5, 2025, <a href="https://docs.modular.com/">https://docs.modular.com/</a></li>
+<li>The Modular Platform (includes MAX &amp; Mojo) - GitHub, accessed September 5, 2025, <a href="https://github.com/modular/modular">https://github.com/modular/modular</a></li>
+<li>foambubble/foam: A personal knowledge management and sharing system for VSCode - GitHub, accessed September 5, 2025, <a href="https://github.com/foambubble/foam">https://github.com/foambubble/foam</a></li>
+<li>Recommended Extensions - Foam, accessed September 5, 2025, <a href="https://foambubble.github.io/foam/user/getting-started/recommended-extensions.html">https://foambubble.github.io/foam/user/getting-started/recommended-extensions.html</a></li>
+<li>Recommended Extensions | Foam, accessed September 5, 2025, <a href="https://foam-template-gatsby-kb.vercel.app/recommended-extensions">https://foam-template-gatsby-kb.vercel.app/recommended-extensions</a></li>
+<li>How to deploy mdbook on GitHub - Stack Overflow, accessed September 5, 2025, <a href="https://stackoverflow.com/questions/60706255/how-to-deploy-mdbook-on-github">https://stackoverflow.com/questions/60706255/how-to-deploy-mdbook-on-github</a></li>
+<li>Cline Configuration Guide: Quick Setup - APIpie.ai, accessed September 5, 2025, <a href="https://apipie.ai/docs/Integrations/Coding/Cline">https://apipie.ai/docs/Integrations/Coding/Cline</a></li>
+<li>OpenRouter API | Documentation | Postman API Network, accessed September 5, 2025, <a href="https://www.postman.com/ai-engineer/generative-ai-apis/documentation/ef6c9qg/openrouter-api">https://www.postman.com/ai-engineer/generative-ai-apis/documentation/ef6c9qg/openrouter-api</a></li>
+<li>A First Look at CLI aNd Editor (CLINE) | by John Duprey | Thomson Reuters Labs | Medium, accessed September 5, 2025, <a href="https://medium.com/tr-labs-ml-engineering-blog/a-first-look-at-cli-and-editor-cline-c96dbc7a6331">https://medium.com/tr-labs-ml-engineering-blog/a-first-look-at-cli-and-editor-cline-c96dbc7a6331</a></li>
+<li>Cline AI: A Guide With Nine Practical Examples - DataCamp, accessed September 5, 2025, <a href="https://www.datacamp.com/tutorial/cline-ai">https://www.datacamp.com/tutorial/cline-ai</a></li>
+<li>peaceiris/actions-gh-pages: GitHub Actions for GitHub Pages Deploy static files and publish your site easily. Static-Site-Generators-friendly., accessed September 5, 2025, <a href="https://github.com/peaceiris/actions-gh-pages">https://github.com/peaceiris/actions-gh-pages</a></li>
+<li>peaceiris/actions-mdbook: GitHub Actions for mdBook (rust-lang/mdBook) ⚡️ Setup mdBook quickly and build your site fast. Linux (Ubuntu), macOS, and Windows are supported., accessed September 5, 2025, <a href="https://github.com/peaceiris/actions-mdbook">https://github.com/peaceiris/actions-mdbook</a></li>
+<li>starter-workflows/pages/mdbook.yml at main - GitHub, accessed September 5, 2025, <a href="https://github.com/actions/starter-workflows/blob/main/pages/mdbook.yml">https://github.com/actions/starter-workflows/blob/main/pages/mdbook.yml</a></li>
+<li>Backlinking - Foam, accessed September 5, 2025, <a href="https://foambubble.github.io/foam/user/features/backlinking.html">https://foambubble.github.io/foam/user/features/backlinking.html</a></li>
+<li>Quick start — Whoosh 2.7.4 documentation - Read the Docs, accessed September 5, 2025, <a href="https://whoosh.readthedocs.io/en/latest/quickstart.html">https://whoosh.readthedocs.io/en/latest/quickstart.html</a></li>
+<li>Whoosh is a fast, featureful full-text indexing and searching library implemented in pure Python. - GitHub, accessed September 5, 2025, <a href="https://github.com/whoosh-community/whoosh">https://github.com/whoosh-community/whoosh</a></li>
+<li>Introduction to Whoosh — Whoosh 2.7.4 documentation, accessed September 5, 2025, <a href="https://whoosh.readthedocs.io/en/latest/intro.html">https://whoosh.readthedocs.io/en/latest/intro.html</a></li>
+<li>Developing a Text Search Engine using the Whoosh Library in Python - Tutorialspoint, accessed September 5, 2025, <a href="https://www.tutorialspoint.com/developing-a-text-search-engine-using-the-whoosh-library-in-python">https://www.tutorialspoint.com/developing-a-text-search-engine-using-the-whoosh-library-in-python</a></li>
+<li>Natural Language Processing With spaCy in Python - Real Python, accessed September 5, 2025, <a href="https://realpython.com/natural-language-processing-spacy-python/">https://realpython.com/natural-language-processing-spacy-python/</a></li>
+<li>spaCy · Industrial-strength Natural Language Processing in Python, accessed September 5, 2025, <a href="https://spacy.io/">https://spacy.io/</a></li>
+<li>NLTK vs spaCy - Python based NLP libraries and their functions - Seaflux Technologies, accessed September 5, 2025, <a href="https://www.seaflux.tech/blogs/NLP-libraries-spaCy-NLTK-differences/">https://www.seaflux.tech/blogs/NLP-libraries-spaCy-NLTK-differences/</a></li>
+<li>9 Best Python Natural Language Processing (NLP) Libraries - Sunscrapers, accessed September 5, 2025, <a href="https://sunscrapers.com/blog/9-best-python-natural-language-processing-nlp/">https://sunscrapers.com/blog/9-best-python-natural-language-processing-nlp/</a></li>
+<li>Containerize Rust Application in 2 Minutes using Docker Init - DEV Community, accessed September 5, 2025, <a href="https://dev.to/ajeetraina/containerize-rust-application-in-2-minutes-using-docker-init-1ohh">https://dev.to/ajeetraina/containerize-rust-application-in-2-minutes-using-docker-init-1ohh</a></li>
+<li>Jules, Google's asynchronous AI coding agent, is out of public beta - The Keyword, accessed September 5, 2025, <a href="https://blog.google/technology/google-labs/jules-now-available/">https://blog.google/technology/google-labs/jules-now-available/</a></li>
+<li>Get started with Mojo - Modular docs, accessed September 5, 2025, <a href="https://docs.modular.com/mojo/manual/get-started/">https://docs.modular.com/mojo/manual/get-started/</a></li>
+<li>Mojo : Powerful CPU+GPU Programming - Modular AI, accessed September 5, 2025, <a href="https://www.modular.com/mojo">https://www.modular.com/mojo</a></li>
+<li>Learn to Program in Mojo Tutorial for Beginners - YouTube, accessed September 5, 2025, <a href="https://www.youtube.com/watch?v=EosPHW2ic9U">https://www.youtube.com/watch?v=EosPHW2ic9U</a></li>
+<li>Exploring the Power of Mojo Programming Language - Seaflux Technologies, accessed September 5, 2025, <a href="https://www.seaflux.tech/blogs/mojo-ai-programming-language/">https://www.seaflux.tech/blogs/mojo-ai-programming-language/</a></li>
+<li>Mojo - A New Programming Language for AI - Refine dev, accessed September 5, 2025, <a href="https://refine.dev/blog/mojo-programming-language/">https://refine.dev/blog/mojo-programming-language/</a></li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Journal.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../nested/Architecture.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Journal.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../nested/Architecture.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
