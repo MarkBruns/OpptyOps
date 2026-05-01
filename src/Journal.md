@@ -1,5 +1,6 @@
 ## Development Journal
 
+* [Reshaping Power Supply, Efficiencies, Data-center Needs For An AI Future](https://github.com/MarkBruns/OpptyOps/blob/main/journal/2026-04-30.md)
 * [20 Categories of Robotic-Focused Content](https://github.com/MarkBruns/OpptyOps/blob/main/journal/2026-04-09.md)
 * [100 Nuanced Tips for Leveraging X As a Connector](https://github.com/MarkBruns/OpptyOps/blob/main/journal/2026-04-08.md)
 * [10-step Playbook For PRACTICAL DEVELOPMENT](https://github.com/MarkBruns/OpptyOps/blob/main/journal/2026-04-07.md)
